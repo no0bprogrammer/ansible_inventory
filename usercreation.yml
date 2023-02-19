@@ -1,0 +1,11 @@
+---
+
+- name: configure important user
+  hosts: prod
+
+  tasks:
+  - name: user creation
+    user:
+      name: kriti
+      uid: 2500
+      state: present

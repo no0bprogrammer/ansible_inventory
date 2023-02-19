@@ -1,6 +1,0 @@
----
-- name: ping_status
-  hosts: prod
-  tasks:
-  - name: ping
-    ping:

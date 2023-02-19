@@ -1,0 +1,13 @@
+---
+
+- name: vim
+  hosts: prod
+  become: true
+
+  tasks:
+  - name: vim installer
+    yum:
+     name: vim
+     state: latest
+
+...
