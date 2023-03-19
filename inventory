@@ -1,20 +1,25 @@
 [prod]
-192.168.0.101
-192.168.0.102
-192.168.0.109
+192.168.0.200
+192.168.0.201
+192.168.0.202
 
-[intranetweb]
-192.168.101
+[dev]
+192.168.0.250
 
-[internetweb]
-192.168.0.109
+[webserver]
+192.168.0.201
+192.168.0.250
 
-[web:children]
-internetweb
-intranetweb
+[email_server]
+192.168.0.200
 
-[preprod]
-192.168.0.225
+[database_server]
+192.168.0.201
+192.168.0.202
+
+[northamerica:children]
+prod
+dev
 
 
-10.105.16.5
+
