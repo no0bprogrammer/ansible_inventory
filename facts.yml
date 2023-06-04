@@ -1,0 +1,14 @@
+---
+- name: ip address
+  hosts: centos
+
+  tasks:
+    - name: fact status
+      debug:
+        msg: 
+          - "{{ ansible_facts['default_ipv4']['address'] }}"
+          - "{{ ansible_facts['hostname'] }}"
+          - "{{ ansible_facts['architecture'] }}"
+          - "{{ ansible_facts['default_ipv4']['macaddress'] }}"
+          
+...

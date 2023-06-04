@@ -1,0 +1,11 @@
+---
+- name: ping status
+  hosts: centos
+  tasks:
+    - name: ping status of centos server
+      ping:
+      register: ping_status
+
+    - debug:
+        msg: "{{ ping_status }}"
+...

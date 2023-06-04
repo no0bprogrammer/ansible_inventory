@@ -1,0 +1,13 @@
+---
+- name: web server uninstallation
+  hosts: centos
+  tasks: 
+   - name: http install
+     yum:
+      name: httpd
+      state: present
+   - name: service start
+     service:
+      name: httpd
+      state: started
+...

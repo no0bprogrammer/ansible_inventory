@@ -1,0 +1,48 @@
+---
+- name: Deploy and start HTTPD service
+  hosts: centos
+  vars:
+    web_pkg: httpd
+    firewall_pkg: firewalld
+    web_service: httpd
+    firewall_service: firewalld
+    python_pkg: python3
+    rule: http
+  tasks:
+    - name: Required packages are installed and upto date
+      yum:
+        name:
+          - "{{ web_pkg }}"
+          - "{{ firewall_pkg }}"
+          - "{{ python_pkg }}"
+      register: install_result  
+
+    - name: The {{ firewall_service }} started and enabled
+      service:
+        name: "{{ firewall_service }}
+        enabled: true
+        state: started
+      register: firewall_status
+    - name: The {{ web_service }} service is started and enabled
+      service"
+        name: "{{ web_service }}"
+        enabled: true
+        state: started
+      register: webservice_status
+    - name: webcontent present in specific place
+      copy:
+        content: "example web content"
+        dest: /var/www/html/index.html
+    - name: The firewall port for the {{ rule }} is open
+      firewalld:
+        service: "{{ rule }}"
+        permanent: true
+        immediate: true
+        state: enabled
+
+    - debug:
+        var: install_result
+
+     
+  
+...

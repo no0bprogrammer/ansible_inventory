@@ -1,0 +1,9 @@
+---
+- name: python
+  hosts: centos
+  tasks:
+   - name: python3 installation
+     yum:
+      name: python3
+      state: latest
+...

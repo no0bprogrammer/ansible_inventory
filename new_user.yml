@@ -1,0 +1,16 @@
+---
+- name: new user creation
+  hosts: centos
+  connection: ssh
+  
+  vars_files:
+    -  user_creation.yml
+  tasks:
+    - name: new user creation
+      user:
+        name: "{{ username }}"
+        password: "{{ passwd|password_hash('sha256') }}"
+      register: user_status
+    - debug:
+        var: user_status
+...
